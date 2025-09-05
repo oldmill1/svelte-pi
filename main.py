@@ -1,7 +1,7 @@
 # main.py
 import click
 from ui import show_welcome, get_project_name, ask_reset_css, get_parent_directory, show_confirmation, show_summary
-from svelte_creator import create_sveltekit_project, add_prettier, install_sass
+from svelte_creator import create_sveltekit_project, add_prettier, install_sass, create_reset_css, update_app_html
 
 
 @click.command()
@@ -35,7 +35,12 @@ def main():
     if not install_sass(project_path):
         return
 
-    # TODO: Add reset.css creation in next step
+    # Step 7: Add reset.css if requested
+    if use_reset_css:
+        if not create_reset_css(project_path):
+            return
+        if not update_app_html(project_path):
+            return
 
     show_summary(project_name, use_reset_css, parent_dir)
 
