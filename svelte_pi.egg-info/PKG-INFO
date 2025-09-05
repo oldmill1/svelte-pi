@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: svelte-pi
+Version: 1.0.0
+Summary: A CLI tool to quickly scaffold SvelteKit projects with your preferred setup
+Author: Ankur Taxali
+Author-email: ataxali@gmail.com
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.9
+Requires-Dist: rich>=13.0.0
+Requires-Dist: click>=8.0.0

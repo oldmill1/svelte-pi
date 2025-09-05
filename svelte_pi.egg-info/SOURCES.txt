@@ -1,0 +1,13 @@
+setup.py
+svelte_pi/__init__.py
+svelte_pi/file_operations.py
+svelte_pi/file_templates.py
+svelte_pi/main.py
+svelte_pi/project_setup.py
+svelte_pi/ui.py
+svelte_pi.egg-info/PKG-INFO
+svelte_pi.egg-info/SOURCES.txt
+svelte_pi.egg-info/dependency_links.txt
+svelte_pi.egg-info/entry_points.txt
+svelte_pi.egg-info/requires.txt
+svelte_pi.egg-info/top_level.txt

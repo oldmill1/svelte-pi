@@ -1,0 +1,2 @@
+[console_scripts]
+svelte-pi = svelte_pi.main:main
