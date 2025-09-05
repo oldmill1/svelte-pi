@@ -67,12 +67,5 @@ def component(component_path):
         console.print(f"[red]✗[/red] Failed to create component")
 
 
-# Keep backward compatibility - if no subcommand is given, run create
-@click.command()
-def main():
-    """SvelteKit project launcher with custom defaults (legacy entry point)"""
-    create.callback()
-
-
 if __name__ == "__main__":
     cli()

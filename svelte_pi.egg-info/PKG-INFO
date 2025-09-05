@@ -2,8 +2,8 @@ Metadata-Version: 2.1
 Name: svelte-pi
 Version: 1.0.0
 Summary: A CLI tool to quickly scaffold SvelteKit projects with your preferred setup
-Author: Ankur Taxali
-Author-email: ataxali@gmail.com
+Author: Your Name
+Author-email: your.email@example.com
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Developers
 Classifier: License :: OSI Approved :: MIT License
