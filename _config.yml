@@ -2,17 +2,10 @@
 title: svelte-kit-launcher
 description: A CLI tool to quickly scaffold SvelteKit projects with your preferred setup
 
-# Jekyll theme - perfect for your retro terminal aesthetic
-theme: jekyll-theme-hacker
-
-# GitHub Pages configuration
-url: "https://oldmill1.github.io"
-baseurl: "/svelte-kit-launcher"
-
-# Markdown processor
-markdown: kramdown
+remote_theme: pages-themes/time-machine@v0.2.0
 
 # Plugins
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-remote-theme
