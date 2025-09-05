@@ -1,7 +1,8 @@
 # main.py
 import click
 from ui import show_welcome, get_project_name, ask_reset_css, get_parent_directory, show_confirmation, show_summary
-from svelte_creator import create_sveltekit_project, add_prettier, install_sass, create_reset_css, update_app_html
+from project_setup import create_sveltekit_project, add_prettier, install_sass
+from file_operations import create_reset_css, update_app_html
 
 
 @click.command()
