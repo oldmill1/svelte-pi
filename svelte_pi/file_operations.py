@@ -1,7 +1,7 @@
 # file_operations.py
 from pathlib import Path
 from rich.console import Console
-from .file_templates import RESET_CSS_CONTENT
+from .file_templates import RESET_CSS_CONTENT, get_svelte_component_template, get_scss_module_template
 
 console = Console()
 
@@ -82,11 +82,13 @@ def create_component(component_path):
 
         # Create the .svelte file
         svelte_file = full_component_path / f"{component_name_capitalized}.svelte"
-        svelte_file.write_text("")  # Empty file for now
+        svelte_content = get_svelte_component_template(component_name_capitalized)
+        svelte_file.write_text(svelte_content)
 
         # Create the .module.scss file
         scss_file = full_component_path / f"{component_name_capitalized}.module.scss"
-        scss_file.write_text("")  # Empty file for now
+        scss_content = get_scss_module_template()
+        scss_file.write_text(scss_content)
 
         console.print(f"[dim]Created: {svelte_file.relative_to(current_dir)}[/dim]")
         console.print(f"[dim]Created: {scss_file.relative_to(current_dir)}[/dim]")

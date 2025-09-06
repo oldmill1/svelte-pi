@@ -113,3 +113,24 @@ address {
     font-style: normal;
 }
 """
+
+
+def get_svelte_component_template(component_name):
+    """Generate Svelte component template with component name"""
+    return f"""<script lang="ts">
+  import styles from './{component_name}.module.scss';
+  // Component logic here
+</script>
+
+<div class={{styles.container}}>
+  <h1>{component_name}</h1>
+</div>
+"""
+
+
+def get_scss_module_template():
+    """Generate SCSS module template"""
+    return """.container {
+  // Styles for the component
+}
+"""
