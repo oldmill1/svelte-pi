@@ -1,14 +1,14 @@
 # svelte-pi
 
-A powerful CLI tool to quickly scaffold SvelteKit projects and manage components with your preferred setup and
-conventions.
+Quickly scaffold SvelteKit projects
 
 ## Features
 
 - 🚀 **Project Scaffolding**: Create SvelteKit projects with TypeScript, Yarn, and Prettier pre-configured
 - 🎨 **Optional Reset CSS**: Modern CSS reset with clean defaults
 - 📦 **Sass Support**: Automatic sass-embedded installation
-- 🧩 **Component Generation**: Create organized components following best practices
+- 🧩 **Component Generation**: Create organized components with boilerplate templates
+- ✨ **Interactive Wizard**: Component creation with guided prompts
 - 🎯 **Smart Validation**: Ensures you're in the right directory before creating components
 - ⚡ **Global CLI**: Use from anywhere in your terminal
 
@@ -46,18 +46,42 @@ Creates a new SvelteKit project with opinionated defaults.
 svelte-pi create
 ```
 
-### `svelte-pi component <path>`
+### `svelte-pi component [path]`
 
-Creates a new component with proper file structure and naming conventions.
+Creates a new component with proper file structure, naming conventions, and boilerplate templates.
 
-**Arguments:**
+**Two modes:**
 
-- `<path>` - Component path relative to `src/lib/components/`
+1. **Direct mode**: Provide the path directly
+2. **Interactive wizard**: Omit the path to launch the guided wizard
 
 **What it creates:**
 
-- `ComponentName.svelte` - Main component file
-- `ComponentName.module.scss` - Component-specific styles
+- `ComponentName.svelte` - Main component file with TypeScript and SCSS import
+- `ComponentName.module.scss` - Component-specific styles with container class
+
+**Component Templates:**
+
+**ComponentName.svelte:**
+
+```svelte
+<script lang="ts">
+  import styles from './ComponentName.module.scss';
+  // Component logic here
+</script>
+
+<div class={styles.container}>
+  <h1>ComponentName</h1>
+</div>
+```
+
+**ComponentName.module.scss:**
+
+```scss
+.container {
+  // Styles for the component
+}
+```
 
 **Component Organization:**
 
@@ -78,17 +102,15 @@ src/lib/components/
 **Examples:**
 
 ```bash
-# Create authentication components
+# Direct mode
 svelte-pi component features/auth/login
-svelte-pi component features/auth/signup
-
-# Create UI components
 svelte-pi component ui/button
-svelte-pi component ui/modal
-
-# Create layout components
 svelte-pi component layout/header
-svelte-pi component layout/sidebar
+
+# Interactive wizard mode
+svelte-pi component
+# ✨ Welcome to Component Creation Wizard
+# Name of component (including path): features/auth/signup
 ```
 
 **Validation:**
@@ -138,8 +160,34 @@ Each component gets its own directory with:
 
 ```
 ComponentName/
-├── ComponentName.svelte        # Main component
-└── ComponentName.module.scss   # Scoped styles
+├── ComponentName.svelte        # Main component with TypeScript and styles import
+└── ComponentName.module.scss   # Scoped SCSS styles
+```
+
+### Usage Examples
+
+**Created components work immediately:**
+
+```bash
+(.venv) ➜  abc svelte-pi component
+
+✨ Welcome to Component Creation Wizard
+
+Name of component (including path): user/profile
+Creating component: user/profile
+Created: src/lib/components/user/profile/Profile.svelte
+Created: src/lib/components/user/profile/Profile.module.scss
+✓ Component created successfully
+```
+
+**Generated file structure:**
+
+```
+src/lib/components/
+└── user/
+    └── profile/
+        ├── Profile.svelte
+        └── Profile.module.scss
 ```
 
 ## Help
@@ -158,7 +206,7 @@ svelte-pi component --help
 This tool is built with:
 
 - **Click**: Command-line interface framework
-- **Rich**: Beautiful terminal formatting
+- **Rich**: Beautiful terminal formatting and interactive prompts
 - **Python 3.9+**: Modern Python features
 
 ### Project Structure
@@ -170,16 +218,45 @@ svelte-pi/
 │   ├── ui.py               # User interface and prompts
 │   ├── project_setup.py    # SvelteKit project creation
 │   ├── file_operations.py  # File and component operations
-│   └── file_templates.py   # Content templates
+│   └── file_templates.py   # Content templates (CSS reset, component boilerplate)
+├── tests/                  # Comprehensive test suite
+│   └── test_create_project.py
 ├── setup.py                # Package configuration
 └── requirements.txt        # Dependencies
 ```
 
+### Testing
+
+Run the test suite:
+
+```bash
+pytest
+```
+
+The project includes 5 tests covering:
+
+- Full CLI integration with mocked subprocess calls
+- Project directory creation
+- Reset CSS functionality
+- App.html updates
+- Error handling
+
+## Current Status ✅
+
+**Fully functional features:**
+
+- ✅ Complete project scaffolding with all dependencies
+- ✅ Interactive component wizard with Rich UI
+- ✅ Component templates with TypeScript and SCSS boilerplate
+- ✅ Global CLI installation and usage
+- ✅ Comprehensive test coverage
+- ✅ SvelteKit project validation
+- ✅ Automatic directory structure creation
+
 ## Roadmap
 
-- [ ] Component content templates (boilerplate code)
 - [ ] Page/route creation (`svelte-pi page`)
-- [ ] Custom component types (with props, stores, etc.)
+- [ ] Different component types (with props, stores, etc.)
 - [ ] Configuration file support (`.svelte-pi.yml`)
 - [ ] Git initialization
 - [ ] VS Code workspace setup
