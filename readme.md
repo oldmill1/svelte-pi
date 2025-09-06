@@ -1,8 +1,4 @@
-# svelte-pi
-
-Quickly scaffold SvelteKit projects
-
-## Features
+# svelte-pi's features
 
 - 🚀 **Project Scaffolding**: Create SvelteKit projects with TypeScript, Yarn, and Prettier pre-configured
 - 🎨 **Optional Reset CSS**: Modern CSS reset with clean defaults

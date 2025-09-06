@@ -1,6 +1,5 @@
 # Site settings
 title: svelte-pi
-description: Quickly scaffold SvelteKit projects
 
 remote_theme: pages-themes/modernist@v0.2.0
 # Plugins
