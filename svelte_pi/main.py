@@ -53,12 +53,29 @@ def create():
 
 
 @cli.command()
-@click.argument('component_path')
+@click.argument('component_path', required=False)
 def component(component_path):
     """Create a new component at the specified path"""
     from rich.console import Console
+    from rich.prompt import Prompt
 
     console = Console()
+
+    # If no path provided, launch interactive wizard
+    if not component_path:
+        console.print()
+        console.print("✨ [light_blue1]Welcome to Component Creation Wizard[/light_blue1]")
+        console.print()
+
+        component_path = Prompt.ask(
+            "[light_steel_blue1]Name of component (including path)[/light_steel_blue1]",
+            console=console
+        )
+
+        if not component_path.strip():
+            console.print("[red]✗[/red] Component path cannot be empty")
+            return
+
     console.print(f"[cyan]Creating component:[/cyan] [bold]{component_path}[/bold]")
 
     if create_component(component_path):
