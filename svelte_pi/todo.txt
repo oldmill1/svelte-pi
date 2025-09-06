@@ -1,0 +1,55 @@
+You're absolutely right to ask this! Yes, you can and **should** use both - they serve different purposes:
+
+## .venv (for development) + pipx (for installation)
+
+**Your current setup is perfect for development:**
+```bash
+# Development workflow (keep doing this)
+source .venv/bin/activate
+pip install -e .  # For testing changes
+svelte-pi create  # Test your code
+```
+
+**Use pipx for "production" installation:**
+```bash
+# When you want to actually use the tool globally
+deactivate  # Exit your venv
+pipx install -e .  # Install globally with isolated deps
+```
+
+## Why Both?
+
+1. **`.venv`** - For developing and testing svelte-pi
+   - Install dependencies locally
+   - Test changes immediately with `pip install -e .`
+   - Keep development isolated
+
+2. **`pipx`** - For actually using svelte-pi as a CLI tool
+   - Global command availability
+   - Dependencies stay isolated from system Python
+   - Can be used from any directory
+
+## Workflow
+
+```bash
+# Development mode
+cd svelte-pi
+source .venv/bin/activate
+# Make changes to code
+pip install -e .  # Reinstall after changes
+svelte-pi create  # Test
+
+# When ready to use globally
+deactivate
+pipx install -e .  # Now works everywhere
+cd ~/anywhere
+svelte-pi create  # Works globally
+```
+
+## The Beauty
+
+- **Development**: Virtual env keeps your dev dependencies clean
+- **Distribution**: pipx keeps the installed tool's dependencies isolated
+- **No conflicts**: Each serves its purpose perfectly
+
+You're already doing the hard part right with `.venv` for development!
