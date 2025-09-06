@@ -2,7 +2,7 @@
 title: svelte-pi
 description: Quickly scaffold SvelteKit projects
 
-remote_theme: pages-themes/dinky@v0.2.0
+remote_theme: pages-themes/modernist@v0.2.0
 # Plugins
 plugins:
   - jekyll-feed
